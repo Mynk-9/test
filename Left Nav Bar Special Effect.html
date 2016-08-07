@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Special Effect</title>
+		
+		<script>
+			function openUp() {
+				var docBody = document.getElementsByClassName('document-body')[0];
+				var navTop = document.getElementsByClassName('nav-top')[0];
+				if (docBody.className.indexOf('deactivate') > 0) {
+					docBody.className = docBody.className.replace('deactivate', ' activate');
+					navTop.className = navTop.className.replace('deactivate', ' activate');
+				} else if (docBody.className.indexOf('activate') > 0) {
+					docBody.className = docBody.className.replace('activate', ' deactivate');
+					navTop.className = navTop.className.replace('activate', ' deactivate');
+				} else {
+					docBody.className += ' activate';
+					navTop.className += ' activate';
+				}
+			}
+		</script>
+		
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+			}
+			div.nav-top {
+				height: 70px;
+				width: 100vw;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background-color: #61bde3;
+				
+				z-index: 2;
+			}
+			div.nav-top > div.left {
+				position: relative;
+				left: 0px;
+				top: 0px;
+				width: 33%;
+				height: 100%;
+			}
+			div.nav-top > div.left > p {
+				margin: 0px;
+				padding: 0px;
+				position: relative;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			div.document-body {
+				position: relative;
+				height: 100vh;
+				width: 100vw;
+				background-color: #ff00ff;
+				
+				z-index: 1;
+			}
+			div.document-body.activate {
+				animation: animate-body 1s ease 0s 1 normal;
+				animation-fill-mode: forwards;
+			}
+			div.document-body.deactivate {
+				animation: deanimate-body 1s ease 0s 1 normal;
+				animation-fill-mode: forwards;
+			}
+			
+			div.nav-left {
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+				background-color: #000;
+				
+				overflow-y: auto;
+				padding-right: 50px;
+				
+				z-index: 0;
+			}
+			div.nav-left > div.section {
+				height: 100px;
+				width: 15%;
+				border-bottom-style: solid;
+				border-bottom-color: #fff;
+				position: relative;
+			}
+			div.nav-left > div.section > p {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				
+				color: #fff;
+			}
+			
+			@keyframes animate-body {
+				from {}
+				to {
+					transform: scale(0.9) translateX(10%);
+				}
+			}
+			@keyframes deanimate-body {
+				from {
+					transform: scale(0.9) translateX(10%);
+				}
+				to {
+					transform: none;
+				}
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="nav-left">
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+			<div class="section">
+				<p>
+					SECTION
+				</p>
+			</div>
+		</div>
+		<div class="document-body">
+			<div class="nav-top">
+				<div class="left">
+					<p>
+						<button onclick="openUp();">OPEN</button>
+					</p>
+				</div>
+			</div>
+			
+			<!---->
+		</div>
+	</body>
+</html>
