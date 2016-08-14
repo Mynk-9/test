@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Special Effect</title>
 		
 		<script>
 			function openUp() {
 				var docBody = document.getElementsByClassName('document-body')[0];
 				var navTop = document.getElementsByClassName('nav-top')[0];
-				if (docBody.className.indexOf('deactivate') > 0) {
-					docBody.className = docBody.className.replace('deactivate', ' activate');
-					navTop.className = navTop.className.replace('deactivate', ' activate');
-				} else if (docBody.className.indexOf('activate') > 0) {
-					docBody.className = docBody.className.replace('activate', ' deactivate');
-					navTop.className = navTop.className.replace('activate', ' deactivate');
+				if (docBody.className.indexOf('activate') > 0) {
+					docBody.className = docBody.className.replace('activate', '');
 				} else {
 					docBody.className += ' activate';
-					navTop.className += ' activate';
 				}
 			}
 		</script>
@@ -61,14 +55,11 @@
 				background-color: #ff00ff;
 				
 				z-index: 1;
+				
+				transition: transform 1s;
 			}
 			div.document-body.activate {
-				animation: animate-body 1s ease 0s 1 normal;
-				animation-fill-mode: forwards;
-			}
-			div.document-body.deactivate {
-				animation: deanimate-body 1s ease 0s 1 normal;
-				animation-fill-mode: forwards;
+				transform: scale(0.9) translateX(10%);
 			}
 			
 			div.nav-left {
@@ -96,21 +87,6 @@
 				transform: translate(-50%, -50%);
 				
 				color: #fff;
-			}
-			
-			@keyframes animate-body {
-				from {}
-				to {
-					transform: scale(0.9) translateX(10%);
-				}
-			}
-			@keyframes deanimate-body {
-				from {
-					transform: scale(0.9) translateX(10%);
-				}
-				to {
-					transform: none;
-				}
 			}
 		</style>
 	</head>
